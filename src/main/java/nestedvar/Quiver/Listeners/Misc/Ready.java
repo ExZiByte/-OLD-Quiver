@@ -26,7 +26,7 @@ public class Ready extends ListenerAdapter {
 
 
             webhook.addEmbed(new Webhooks.EmbedObject()
-                .setDescription("Shard 2 is servicing \n\n```\n100 guilds 15 members\n```")
+                .setDescription("Shard " + event.getJDA().getShardInfo().getShardId() + " is servicing ```" + counter.getGuildsServiced(event) + " guilds" + counter.getMemberCount(event) + " members```")
             );
             System.out.println("[Shard " + event.getJDA().getShardInfo().getShardId() + "] 🎯 Loaded! Servicing " + counter.getGuildsServiced(event) + " guilds and " + counter.getMemberCount(event) + " members");
             webhook.execute();
