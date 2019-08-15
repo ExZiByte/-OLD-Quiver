@@ -20,13 +20,13 @@ public class Ready extends ListenerAdapter {
     public void onReady(ReadyEvent event) throws MongoClientException {
         Count counter = new Count();
         Utils utils = new Utils();
-        Database db = new Database();
         try {
             Webhooks webhook = new Webhooks(System.getenv("QUIVERWEBHOOK"));
 
 
             webhook.addEmbed(new Webhooks.EmbedObject()
-                .setDescription("Shard " + event.getJDA().getShardInfo().getShardId() + " is servicing ```" + counter.getGuildsServiced(event) + " guilds" + counter.getMemberCount(event) + " members```")
+                .setTitle("Quiver Shard " + event.getJDA().getShardInfo().getShardId() + " is ready")
+                .setDescription("This shard is servicing \\n\\n```\\n" + counter.getGuildsServiced(event) + " guilds\\n" + counter.getMemberCount(event) + " members\\n```")
             );
             System.out.println("[Shard " + event.getJDA().getShardInfo().getShardId() + "] 🎯 Loaded! Servicing " + counter.getGuildsServiced(event) + " guilds and " + counter.getMemberCount(event) + " members");
             webhook.execute();
