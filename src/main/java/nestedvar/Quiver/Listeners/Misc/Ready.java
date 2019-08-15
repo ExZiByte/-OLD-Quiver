@@ -1,5 +1,6 @@
 package nestedvar.Quiver.Listeners.Misc;
 
+import java.awt.*;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -27,6 +28,7 @@ public class Ready extends ListenerAdapter {
             webhook.addEmbed(new Webhooks.EmbedObject()
                 .setTitle("Quiver Shard " + event.getJDA().getShardInfo().getShardId() + " is ready")
                 .setDescription("This shard is servicing \\n\\n```\\n" + counter.getGuildsServiced(event) + " guilds\\n" + counter.getMemberCount(event) + " members\\n```")
+                .setColor(new Color(Utils.getColor()))
             );
             System.out.println("[Shard " + event.getJDA().getShardInfo().getShardId() + "] 🎯 Loaded! Servicing " + counter.getGuildsServiced(event) + " guilds and " + counter.getMemberCount(event) + " members");
             webhook.execute();
