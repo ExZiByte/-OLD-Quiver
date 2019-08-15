@@ -21,18 +21,12 @@ public class Ready extends ListenerAdapter {
         Count counter = new Count();
         Utils utils = new Utils();
         Database db = new Database();
-        try{
-           db.connect();
-           System.out.println("Successfully connecting to MongoDB Database");
-        } catch (MongoClientException e){
-            System.out.println("Welp i give up");
-        }
         try {
             Webhooks webhook = new Webhooks(System.getenv("QUIVERWEBHOOK"));
 
 
             webhook.addEmbed(new Webhooks.EmbedObject()
-                .setDescription("Shard " + event.getJDA().getShardInfo().getShardId() + " is servicing \n\n```\n" + counter.getGuildsServiced(event) + " guilds\n" + counter.getMemberCount(event) + " members\n```")
+                .setDescription("Shard 2 is servicing \n\n```\n100 guilds 15 members\n```")
             );
             System.out.println("[Shard " + event.getJDA().getShardInfo().getShardId() + "] 🎯 Loaded! Servicing " + counter.getGuildsServiced(event) + " guilds and " + counter.getMemberCount(event) + " members");
             webhook.execute();
