@@ -29,13 +29,17 @@ public class Ready extends ListenerAdapter {
         }
         try {
             Webhooks webhook = new Webhooks(System.getenv("QUIVERWEBHOOK"));
-            System.out.println(System.getenv("QUIVERWEBHOOK"));
+
             webhook.addEmbed(new Webhooks.EmbedObject()
-                .setTitle("Quiver Shard " + event.getJDA().getShardInfo().getShardId() + " is ready")
-                .setDescription("This shard is servicing \n\n```\n" + counter.getGuildsServiced(event) + " guilds\n" + counter.getMemberCount(event) + " members\n```")
+                    .setDescription("HI")
             );
-            webhook.execute();
+
+//            webhook.addEmbed(new Webhooks.EmbedObject()
+//                .setTitle("Quiver Shard " + event.getJDA().getShardInfo().getShardId() + " is ready")
+//                .setDescription("This shard is servicing \n\n```\n" + counter.getGuildsServiced(event) + " guilds\n" + counter.getMemberCount(event) + " members\n```")
+//            );
             System.out.println("[Shard " + event.getJDA().getShardInfo().getShardId() + "] 🎯 Loaded! Servicing " + counter.getGuildsServiced(event) + " guilds and " + counter.getMemberCount(event) + " members");
+            webhook.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
