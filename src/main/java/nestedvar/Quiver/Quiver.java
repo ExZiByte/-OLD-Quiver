@@ -21,7 +21,8 @@ public class Quiver {
         builder.setToken(System.getenv("QUIVERTOKEN"));
         builder.addEventListeners(
                 new Ready(),
-                new QuiverJoin()
+                new QuiverJoin(),
+                new MemberJoin()
         );
         builder.setStatus(OnlineStatus.DO_NOT_DISTURB);
         builder.setGame(Game.watching("the loading bar fill!"));
