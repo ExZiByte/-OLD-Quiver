@@ -53,8 +53,10 @@ public class QuiverJoin extends ListenerAdapter {
                 webhook.execute();
                 List<BasicDBObject> memberInformation = new ArrayList<>();
                 for (Member member : event.getGuild().getMembers()) {
-                    BasicDBObject thing = new BasicDBObject(member.getUser().getId(), new BasicDBObject("name", member.getUser().getName() + "#" + member.getUser().getDiscriminator()).append("level", 0).append("xp", 0));
-                    memberInformation.add(thing);
+                    if (!member.getUser().isBot()) {
+                        BasicDBObject thing = new BasicDBObject(member.getUser().getId(), new BasicDBObject("name", member.getUser().getName() + "#" + member.getUser().getDiscriminator()).append("level", 0).append("xp", 0));
+                        memberInformation.add(thing);
+                    }
                 }
                 Document doc = new Document("guildID", event.getGuild().getId())
                         .append("guildName", event.getGuild().getName())
