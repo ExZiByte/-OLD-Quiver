@@ -66,6 +66,7 @@ public class QuiverJoin extends ListenerAdapter {
                         .append("isBlacklisted", false)
                         .append("isChannelSystemEnabled", true);
 
+                guilds.insertOne(doc);
                 db.close();
             } catch (IOException e) {
                 e.printStackTrace();
