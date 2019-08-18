@@ -22,10 +22,8 @@ public class Utils {
     }
 
     public static int getColor(){
-
         Random obj = new Random();
         int random_number = obj.nextInt(0xffffff + 1);
-
         return random_number;
     }
 
