@@ -1,6 +1,7 @@
 package nestedvar.Quiver.Listeners.Misc;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 import com.mongodb.client.MongoCollection;
 import nestedvar.Quiver.Utilities.Database;
 import nestedvar.Quiver.Utilities.Utils;
@@ -50,18 +51,15 @@ public class QuiverJoin extends ListenerAdapter {
                         .setColor(new Color(0x6bfa69))
                 );
                 webhook.execute();
-                List<BasicDBObject> memberObject = new ArrayList<>();
                 List<BasicDBObject> memberInformation = new ArrayList<>();
                 for (Member member : event.getGuild().getMembers()) {
-                    memberInformation.add(new BasicDBObject("name", member.getUser().getName() + "#" + member.getUser().getDiscriminator()));
-                    memberInformation.add(new BasicDBObject("level", 0));
-                    memberInformation.add(new BasicDBObject("xp", 0));
-                    memberObject.add(new BasicDBObject(member.getUser().getId(), memberInformation));
+                    BasicDBObject thing = new BasicDBObject(member.getUser().getId(), new BasicDBObject("name", member.getUser().getName() + "#" + member.getUser().getDiscriminator()).append("level", 0).append("xp", 0));
+                    memberInformation.add(thing);
                 }
                 Document doc = new Document("guildID", event.getGuild().getId())
                         .append("guildName", event.getGuild().getName())
                         .append("prefix", "Q!")
-                        .append("members", memberObject)
+                        .append("members", memberInformation)
                         .append("isBlacklisted", false)
                         .append("isChannelSystemEnabled", true);
 
