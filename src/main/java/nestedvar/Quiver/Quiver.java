@@ -16,10 +16,12 @@ public class Quiver {
     static ShardManager manager;
     static Resources res = new Resources();
     static final DefaultShardManagerBuilder builder = new DefaultShardManagerBuilder();
+
     public static void main(String[] args) throws LoginException, RateLimitedException, InterruptedException, UnknownHostException {
         builder.setToken(System.getenv("QUIVERTOKEN"));
         builder.addEventListeners(
-            new Ready()
+                new Ready(),
+                new QuiverJoin()
         );
         builder.setStatus(OnlineStatus.DO_NOT_DISTURB);
         builder.setGame(Game.watching("the loading bar fill!"));
