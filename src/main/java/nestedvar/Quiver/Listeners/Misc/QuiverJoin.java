@@ -28,7 +28,7 @@ public class QuiverJoin extends ListenerAdapter {
         db.connect();
         MongoCollection guilds = db.getCollection("guilds");
 
-        if (guilds.find(eq("guildID", event.getGuild().getId())).first() == null) {
+        if (guilds.find(eq("guildID", event.getGuild().getId())).first() != null) {
             try {
                 Webhooks webhook = new Webhooks(System.getenv("QUIVERWEBHOOK"));
                 webhook.addEmbed(new Webhooks.EmbedObject()
