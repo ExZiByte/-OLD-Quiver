@@ -33,10 +33,9 @@ public class QuiverJoin extends ListenerAdapter {
                 Webhooks webhook = new Webhooks(System.getenv("QUIVERWEBHOOK"));
                 webhook.addEmbed(new Webhooks.EmbedObject()
                         .setTitle("⚠Discord has triggered a GuildJoinEvent for a Guild already in the database")
-                        .setDescription("Guild in question: " + event.getGuild().getName() + "\nGuild ID: " + event.getGuild().getId())
+                        .setDescription("Guild in question: " + event.getGuild().getName() + "\\nGuild ID: " + event.getGuild().getId())
                 );
                 webhook.execute();
-
                 db.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -47,7 +46,7 @@ public class QuiverJoin extends ListenerAdapter {
                 Webhooks webhook = new Webhooks(System.getenv("QUIVERWEBHOOK"));
                 webhook.addEmbed(new Webhooks.EmbedObject()
                         .setTitle("I've been added to a new guild!")
-                        .setDescription("Guild in question: " + event.getGuild().getName() + "\nGuild ID: " + event.getGuild().getId())
+                        .setDescription("Guild in question: " + event.getGuild().getName() + "\\nGuild ID: " + event.getGuild().getId())
                         .setColor(new Color(0x6bfa69))
                 );
                 webhook.execute();
