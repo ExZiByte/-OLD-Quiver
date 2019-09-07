@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #23272A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nestedvar.Quiver.Controller">
+   <children>
+      <AnchorPane layoutX="30.0" layoutY="291.0" prefHeight="45.0" prefWidth="273.0" style="-fx-background-color: #2C2F33;">
+         <children>
+            <Button id="startButton" fx:id="start" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#startBot" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #4fff4f;" text="Start" />
+            <Button id="restartButton" fx:id="restart" layoutX="102.0" layoutY="10.0" mnemonicParsing="false" onAction="#restartBot" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #fff457;" text="Restart" />
+            <Button id="stopButton" fx:id="stop" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#stopBot" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #f24949;" text="Stop" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="30.0" layoutY="60.0" prefHeight="193.0" prefWidth="273.0" style="-fx-background-color: #2c2f33;">
+         <children>
+            <PasswordField id="bottoken" fx:id="bottoken" layoutX="12.0" layoutY="13.0" prefHeight="25.0" prefWidth="250.0" promptText="Paste Bot Token Here" />
+            <TextField id="url" fx:id="url" layoutX="12.0" layoutY="48.0" prefHeight="25.0" prefWidth="96.0" promptText="DB URL / IP">
+               <tooltip>
+                  <Tooltip text="Set the MongoDB Database URL here. If you are hosting the bot on the same machine as the MongoDB Database then just type 'localhost'." />
+               </tooltip>
+            </TextField>
+            <TextField id="port" fx:id="port" layoutX="117.0" layoutY="48.0" prefHeight="25.0" prefWidth="50.0" promptText="DB Port" text="27017">
+               <tooltip>
+                  <Tooltip text="Set the MongoDB Database Port here. If you are using a hosting service for the MongoDB Database then use the port they have supplied you with." />
+               </tooltip>
+            </TextField>
+            <TextField id="authdb" fx:id="authdb" layoutX="175.0" layoutY="48.0" prefHeight="25.0" prefWidth="87.0" promptText="Auth DB" text="admin">
+               <tooltip>
+                  <Tooltip text="Set the MongoDB Database Authentication Database here. If you are using a hosting service for the MongoDB Database the use the Authentication Database they have supplied you with." />
+               </tooltip>
+            </TextField>
+            <TextField id="username" fx:id="username" layoutX="12.0" layoutY="83.0" prefHeight="25.0" prefWidth="120.0" promptText="DB Username">
+               <tooltip>
+                  <Tooltip text="Set the MongoDB Database Username here. If you are using a hosting service for the MongoDB Database the use the username they have supplied you with." />
+               </tooltip>
+            </TextField>
+            <PasswordField id="password" fx:id="password" layoutX="142.0" layoutY="83.0" prefHeight="25.0" prefWidth="120.0" promptText="DB Passphrase">
+               <tooltip>
+                  <Tooltip text="Set the MongoDB Database Password here. If you are using a hosting service for the MongoDB Database the use the password they have supplied you with." />
+               </tooltip>
+            </PasswordField>
+            <Button id="testdb" fx:id="testdb" layoutX="12.0" layoutY="119.0" mnemonicParsing="false" onAction="#testDB" prefHeight="25.0" prefWidth="250.0" text="Test Database Connection">
+               <tooltip>
+                  <Tooltip text="Test a connection to the MongoDB Database to see if the information supplied is correct." />
+               </tooltip>
+            </Button>
+            <TextField id="defaultprefix" fx:id="defaultprefix" layoutX="12.0" layoutY="155.0" prefHeight="25.0" prefWidth="87.0" promptText="Default Prefix" text="Q!">
+               <tooltip>
+                  <Tooltip text="Set the default prefix all new guilds will use before setting their own prefix." />
+               </tooltip>
+            </TextField>
+            <TextField layoutX="182.0" layoutY="155.0" prefHeight="25.0" prefWidth="80.0" promptText="Shard Count" text="-1">
+               <tooltip>
+                  <Tooltip text="Set the amount of shards to use. If you don't know how to calculate how many shards to use set this to '-1'." />
+               </tooltip>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="352.0" layoutY="59.0" prefHeight="277.0" prefWidth="220.0" style="-fx-background-color: #2c2f33;" />
+   </children>
+</AnchorPane>

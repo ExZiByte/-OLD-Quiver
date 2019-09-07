@@ -1,7 +1,6 @@
 package nestedvar.Quiver.Listeners.Misc;
 
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
 import com.mongodb.client.MongoCollection;
 import nestedvar.Quiver.Utilities.Database;
 import nestedvar.Quiver.Utilities.Utils;
@@ -24,8 +23,6 @@ public class QuiverJoin extends ListenerAdapter {
 
     public void onGuildJoin(GuildJoinEvent event) {
         Utils utils = new Utils();
-
-
         db.connect();
         MongoCollection guilds = db.getCollection("guilds");
         MongoCollection members = db.getCollection("members");
@@ -59,7 +56,7 @@ public class QuiverJoin extends ListenerAdapter {
                         if(members.find(eq("id", member.getUser().getId())).first() != null){
 
                         } else {
-                            Document memberDoc = new Document("id", member.getUser().getId()).append("name", member.getUser().getName() + "#" + member.getUser().getDiscriminator()).append("facebook", "Not Set").append("instagram", "Not Set").append("youtube", "Not Set").append("twitch", "Not Set").append("mixer", "Not Set").append("imgur", "Not Set").append("tiktok", "Not Set").append("steam", "Not Set").append("blizzard", "Not Set").append("epic", "Not Set").append("twitter", "Not Set").append("origin", "Not Set").append("reddit", "Not Set").append("spotify", "Not Set").append("skype", "Not Set").append("xboxlive", "Not Set").append("psn", "Not Set").append("slack", "Not Set").append("snapchat", "Not Set").append("teamspeak", "Not Set").append("mumble", "Not Set").append("stackoverflow", "Not Set").append("tumblr", "Not Set").append("giphy", "Not Set");
+                            Document memberDoc = new Document("id", member.getUser().getId()).append("name", member.getUser().getName() + "#" + member.getUser().getDiscriminator()).append("facebook", "Not Set").append("instagram", "Not Set").append("youtube", "Not Set").append("twitch", "Not Set").append("mixer", "Not Set").append("imgur", "Not Set").append("tiktok", "Not Set").append("steam", "Not Set").append("blizzard", "Not Set").append("epic", "Not Set").append("twitter", "Not Set").append("origin", "Not Set").append("reddit", "Not Set").append("spotify", "Not Set").append("skype", "Not Set").append("xboxlive", "Not Set").append("psn", "Not Set").append("slack", "Not Set").append("snapchat", "Not Set").append("teamspeak", "Not Set").append("mumble", "Not Set").append("stackoverflow", "Not Set").append("tumblr", "Not Set").append("giphy", "Not Set").append("github", "Not Set").append("gitlab", "Not Set");
                             members.insertOne(memberDoc);
                         }
                         memberInformation.add(thing);
@@ -80,22 +77,3 @@ public class QuiverJoin extends ListenerAdapter {
         }
     }
 }
-//
-////        } else {
-//
-//
-////                Statement stmt = conn.createStatement();
-////                stmt.execute("INSERT INTO `guilds` VALUES('"+ event.getGuild().getId() + "', '" + event.getGuild().getName() + "', 'Q!', 'true', 'false')");
-////
-////                conn.close();
-////
-////                for(Member member: event.getGuild().getMembers()){
-////                    stmt = conn.createStatement();
-////                    stmt.execute("");
-////                }
-////            } catch(SQLException | IOException e){
-////                e.printStackTrace();
-////            }
-////        }
-//        }
-//    }

@@ -31,7 +31,7 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- Sedmelluq's Lavaplayer JDA Audio Sending Node-->
+        <!-- Sedmelluq's Lavaplayer JDA Audio Sending Node -->
         <dependency>
             <groupId>com.sedmelluq</groupId>
             <artifactId>lavaplayer</artifactId>
@@ -52,7 +52,7 @@
             <version>2.6</version>
         </dependency>
 
-      <!-- SLF4J SHUSHHH THINGY -->
+        <!-- SLF4J SHUSHHH THINGY -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>
@@ -86,6 +86,34 @@
             <artifactId>mongodb-driver</artifactId>
             <version>3.4.3</version>
         </dependency>
+
+        <!-- JavaFX Base -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>13-ea+12</version>
+        </dependency>
+
+        <!-- JavaFX Controls -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>13-ea+12</version>
+        </dependency>
+
+        <!-- JavaFX Graphics -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>13-ea+12</version>
+        </dependency>
+
+        <!-- JavaFX FXML -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>13-ea+12</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -102,7 +130,7 @@
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>nestedvar.Quiver.Quiver</mainClass>
+                  <mainClass>nestedvar.Quiver.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -110,6 +138,18 @@
         </executions>
       </plugin>
     </plugins>
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.png</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.css</include>
+                </includes>
+            </resource>
+        </resources>
   </build>
 
 </project>

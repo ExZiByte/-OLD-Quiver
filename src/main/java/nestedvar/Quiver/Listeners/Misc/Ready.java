@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 
 import com.mongodb.MongoClientException;
 import nestedvar.Quiver.Utilities.Count;
-import nestedvar.Quiver.Utilities.Database;
 import nestedvar.Quiver.Utilities.Utils;
 import nestedvar.Quiver.Utilities.Webhooks;
 import net.dv8tion.jda.core.OnlineStatus;
@@ -22,9 +21,7 @@ public class Ready extends ListenerAdapter {
         Count counter = new Count();
         Utils utils = new Utils();
         try {
-            Webhooks webhook = new Webhooks(System.getenv("QUIVERWEBHOOK"));
-
-
+            Webhooks webhook = new Webhooks("https://discordapp.com/api/webhooks/611381043488096266/QptyO9L5wHV1iN2VMfMdLwswPzNbxeC9RvIKcRyv4GUpC1DTziHGPjuhEOwrhE1zl0pT");
             webhook.addEmbed(new Webhooks.EmbedObject()
                 .setTitle("Quiver Shard " + event.getJDA().getShardInfo().getShardId() + " is ready")
                 .setDescription("This shard is servicing \\n\\n```\\n" + counter.getGuildsServiced(event) + " guilds\\n" + counter.getMemberCount(event) + " members\\n```")
