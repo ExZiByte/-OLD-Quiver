@@ -11,14 +11,14 @@ import net.dv8tion.jda.core.exceptions.RateLimitedException;
 import javax.security.auth.login.LoginException;
 import java.net.UnknownHostException;
 
-public class Main extends Application {
-    public static void main(String[] args) throws LoginException, RateLimitedException, InterruptedException, UnknownHostException {
-        if (args.length > 0 && "nogui".equals(args[0])) {
-            new Quiver(System.getenv("QUIVERTOKEN"));
-        } else {
-            launch(args);
-        }
-    }
+//public class Main extends Application {
+    //public static void main(String[] args) throws LoginException, RateLimitedException, InterruptedException, UnknownHostException {
+//        if (args.length > 0 && "nogui".equals(args[0])) {
+//            new Quiver(System.getenv("QUIVERTOKEN"));
+//        } else {
+//            launch(args);
+//        }
+//    }
 
 
     @Override
