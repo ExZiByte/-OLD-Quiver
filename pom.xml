@@ -93,7 +93,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
             <version>13-ea+12</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- JavaFX Controls -->
@@ -101,7 +100,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>13-ea+12</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- JavaFX Graphics -->
@@ -109,7 +107,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
             <version>13-ea+12</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- JavaFX FXML -->
@@ -117,7 +114,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>13-ea+12</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
