@@ -28,10 +28,10 @@ public class Utils {
         MongoCollection<Document> guild = db.getCollection("guilds");
         String oldPrefix = guild.find(eq("guildID", event.getGuild().getId())).first().getString("prefix");
 
-//        Bson filter = new Document("prefix", oldPrefix);
-//        Bson newPrefix = new Document("prefix", prefix);
-//        Bson updatePrefix = new Document("$set", newPrefix);
-        guild.find(eq("guildID", event.getGuild().getId())).first().replace("prefix", oldPrefix, prefix);
+        Bson filter = new Document("prefix", oldPrefix);
+        Bson newPrefix = new Document("prefix", prefix);
+        Bson updatePrefix = new Document("$set", newPrefix);
+        guild.findOneAndUpdate(filter, updatePrefix);
 
         db.close();
 
