@@ -1,6 +1,7 @@
 package nestedvar.Quiver.Utilities;
 
 import com.mongodb.client.MongoCollection;
+import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -26,13 +27,15 @@ public class Utils {
         db.connect();
 
         MongoCollection<Document> guild = db.getCollection("guilds");
-        String oldPrefix = guild.find(eq("guildID", event.getGuild().getId())).first().getString("prefix");
+        Document oldPrefix = guild.find(eq("guildID", event.getGuild().getId())).first();
+        System.out.println(oldPrefix.getString("guildName"));
+        /*
 
         Bson filter = new Document("prefix", oldPrefix);
         Bson newPrefix = new Document("prefix", prefix);
         Bson updatePrefix = new Document("$set", newPrefix);
         guild.findOneAndUpdate(filter, updatePrefix);
-
+*/
         db.close();
 
     }
@@ -45,6 +48,20 @@ public class Utils {
         Random obj = new Random();
         int random_number = obj.nextInt(0xffffff + 1);
         return random_number;
+    }
+
+    public static TextChannel getLogChannel(GuildMessageReceivedEvent event) {
+        TextChannel channel;
+        db.connect();
+        MongoCollection<Document> guild = db.getCollection("guilds");
+        String channelID = guild.find(eq("guildID", event.getGuild().getId())).first().getString("logChannelID");
+        db.close();
+        if(channelID.equalsIgnoreCase("Not Set")){
+            return null;
+        } else {
+            channel = event.getGuild().getTextChannelById(channelID);
+            return channel;
+        }
     }
 
 }
