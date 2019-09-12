@@ -29,13 +29,12 @@ public class Utils {
         MongoCollection<Document> guild = db.getCollection("guilds");
         Document oldPrefix = guild.find(eq("guildID", event.getGuild().getId())).first();
         System.out.println(oldPrefix.getString("guildName"));
-        /*
 
         Bson filter = new Document("prefix", oldPrefix);
         Bson newPrefix = new Document("prefix", prefix);
         Bson updatePrefix = new Document("$set", newPrefix);
         guild.findOneAndUpdate(filter, updatePrefix);
-*/
+
         db.close();
 
     }
