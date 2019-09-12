@@ -30,10 +30,9 @@ public class Utils {
         Document oldPrefix = guild.find(eq("guildID", event.getGuild().getId())).first();
         System.out.println(oldPrefix.getString("guildName"));
 
-        Bson filter = new Document("prefix", oldPrefix.getString("prefix"));
         Bson newPrefix = new Document("prefix", prefix);
         Bson updatePrefix = new Document("$set", newPrefix);
-        guild.findOneAndUpdate(filter, updatePrefix);
+        guild.findOneAndUpdate(oldPrefix, updatePrefix);
 
         db.close();
 
