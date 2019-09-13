@@ -21,7 +21,7 @@ public class SetPrefix extends ListenerAdapter {
                 utils.setPrefix(event, args[1]);
                 eb.setDescription("Successfully set the prefix to `" + args[1] + "`");
                 eb.setColor(new Color(utils.getColor()));
-                eb.setFooter("Votrix Set Prefix", utils.getSelfAvatar(event));
+                eb.setFooter("Quiver Set Prefix", utils.getSelfAvatar(event));
                 eb.setTimestamp(Instant.now());
 
                 success.setDescription(event.getMember().getAsMention() + " set the prefix to `" + args[1] + "`");
